@@ -6,7 +6,7 @@
  *@node1: Pointer to the first node
  *@node2: Pointer to the second node
  *
- *Description: Swaps node1 and node2, where node1 is directly before node2.
+ *Description: Swaps node1 and node2.
  *Adjusts pointers of neighboring nodes.
  */
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
@@ -34,8 +34,7 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
  *using the Insertion sort algorithm
  *@list: Double pointer to the head of the list
  *
- *Description: Iterates through the list
- *Utilizes swap_nodes to swap elements.
+ *Description: Iterates through the list.
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -58,3 +57,4 @@ void insertion_sort_list(listint_t **list)
 		current = current->next;
 	}
 }
+
