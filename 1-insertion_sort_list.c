@@ -3,38 +3,38 @@
 /**
  *swap_nodes - Swaps two adjacent nodes in a doubly linked list
  *@list: Double pointer to the head of the list
- *@node1: Pointer to the first node
- *@node2: Pointer to the second node
+ *@left: Pointer to the first node
+ *@right: Pointer to the second node
  *
- *Description: Swaps node1 and node2.
- *Adjusts pointers of neighboring nodes.
+ *Description: Swaps left and right nodes, adjusting
+ *their links appropriately.
+ *Ensures that the head of the list is updated correctly.
  */
-void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
+void swap_nodes(listint_t **list, listint_t *left, listint_t *right)
 {
-	if (node1->prev)
-		node1->prev->next = node2;
-	if (node2->next)
-		node2->next->prev = node1;
+	if (left->prev)
+		left->prev->next = right;
+	if (right->next)
+		right->next->prev = left;
 
-	node1->next = node2->next;
-	node2->prev = node1->prev;
+	left->next = right->next;
+	right->prev = left->prev;
 
-	node2->next = node1;
-	node1->prev = node2;
+	right->next = left;
+	left->prev = right;
 
-	if (node2->prev == NULL)
-		*
-		list = node2;
-	else
-		node2->prev->next = node2;
+	if (right->prev == NULL)
+		*list = right;
 }
 
 /**
  *insertion_sort_list - Sorts a doubly linked list
+ *of integers in ascending order
  *using the Insertion sort algorithm
  *@list: Double pointer to the head of the list
  *
- *Description: Iterates through the list.
+ *Description: Iterates through the list and
+ *Utilizes swap_nodes for swapping adjacent nodes.
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -57,4 +57,5 @@ void insertion_sort_list(listint_t **list)
 		current = current->next;
 	}
 }
+
 
